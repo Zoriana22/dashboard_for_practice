@@ -5,7 +5,7 @@ import styles from "./App.module.css";
 import Admin_Navbar from "./Сomponents/Admin_Navbar/Admin_Navbar";
 import Admin_wrapper_content from "./Сomponents/Admin_wrapper_content/Admin_wrapper_content";
 //className={styles.test}
-
+import Topbar from "./Сomponents/Topbar/Topbar";
 
 const App = () => {
 
@@ -14,6 +14,10 @@ const App = () => {
     <div className={styles.app_wrapper}>
 
       <Admin_Navbar />
+
+      <div className={styles.topbar}>
+        <Topbar />
+      </div>
 
       <div className={styles.app_wrapper_content}>
         <Admin_wrapper_content />
