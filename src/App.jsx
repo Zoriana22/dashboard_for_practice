@@ -12,10 +12,12 @@ const App = () => {
   return (
     //<BrowserRouter>
     <div className={styles.app_wrapper}>
-      <h1>hello</h1>
-      <Admin_Navbar />
-      <Admin_wrapper_content />
 
+      <Admin_Navbar />
+
+      <div className={styles.app_wrapper_content}>
+        <Admin_wrapper_content />
+      </div>
 
     </div>
     //</BrowserRouter>
