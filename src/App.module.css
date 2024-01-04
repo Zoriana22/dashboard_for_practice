@@ -1,7 +1,24 @@
 .app_wrapper {
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  width: 1800px;
-  background-color: rgb(23, 32, 81);
+  display: grid;
+  height: 100vh;
+  grid-template-areas: 
+  "sidebar topbar"
+  "sidebar content";
+  grid-template-columns: 2fr 10fr;
+  grid-template-rows: 60px 1fr;
+  background-color: #12263F;
+  color: #fff;
+}
+
+.topbar {
+  grid-area: topbar; 
+  background-color: rgb(23, 43, 81);
+  color: #fff;
+}
+
+.app_wrapper_content {
+  grid-area: content; 
+  background-color: #08142A;
+  color: #fff;
 }
