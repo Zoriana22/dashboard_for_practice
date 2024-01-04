@@ -47,6 +47,7 @@ module.exports = {
     },
     hot: true,
     open: true,
+    historyApiFallback: true,
   },
   optimization: {
     minimize: true,

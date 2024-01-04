@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client'
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import styles from "./Admin_Sidebar.module.css";
 import Dashboard from '../Dashboard/Dashboard';
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Users from '../Users/Users'
 
 const Admin_Sidebar = (props) => {
     return (
@@ -32,7 +33,7 @@ const Admin_Sidebar = (props) => {
             <ul>
                 <li className={styles.data_item}>
                     <img src="" alt=" " />
-                    <span className={styles.datatitle}>Users</span>
+                    <Link to={`/users`}><span className={styles.admin_data_title}>Users </span></Link>
                 </li>
                 <li className={styles.data_item}>
                     <img src="" alt=" " />
@@ -44,7 +45,7 @@ const Admin_Sidebar = (props) => {
                 </li>
             </ul>
 
-        </div>
+        </div >
     )
 }
 export default Admin_Sidebar;

@@ -5,6 +5,7 @@ import Admin_Sidebar from "./Сomponents/Admin_Sidebar/Admin_Sidebar";
 import Admin_wrapper_content from "./Сomponents/Users/Users";
 import Topbar from "./Сomponents/Topbar/Topbar";
 import Dashboard from "./Сomponents/Dashboard/Dashboard";
+import Users from "./Сomponents/Users/Users";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/users",
+    element: <div><Users /></div>,
   }
 ]);
 
