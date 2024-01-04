@@ -2,15 +2,18 @@ import React from "react";
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import styles from "./App.module.css";
 import Admin_Sidebar from "./Сomponents/Admin_Sidebar/Admin_Sidebar";
-import Admin_wrapper_content from "./Сomponents/Admin_wrapper_content/Admin_wrapper_content";
+import Admin_wrapper_content from "./Сomponents/Users/Users";
 import Topbar from "./Сomponents/Topbar/Topbar";
 import Dashboard from "./Сomponents/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div><Admin_wrapper_content /></div>,
+    element: <div><Dashboard /></div>,
   },
+  {
+    path: "/users",
+  }
 ]);
 
 const App = () => {
@@ -27,7 +30,7 @@ const App = () => {
 
       <div className={styles.app_wrapper_content}>
         <RouterProvider router={router} />
-        {/*<Admin_wrapper_content />*/}
+        {/*<Users />*/}
       </div>
 
     </div>

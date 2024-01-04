@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./Admin_wrapper_content.module.css";
+import styles from "./Users.module.css";
 
 const Admin_wrapper_content = (props) => {
     return (

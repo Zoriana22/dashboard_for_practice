@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client'
 import styles from "./Admin_Sidebar.module.css";
 import Dashboard from '../Dashboard/Dashboard';
-//import { adminAva } from "../../../public/adminAva.png";
+import { Outlet, Link } from "react-router-dom";
 
 const Admin_Sidebar = (props) => {
     return (
@@ -32,7 +32,7 @@ const Admin_Sidebar = (props) => {
             <ul>
                 <li className={styles.data_item}>
                     <img src="" alt=" " />
-                    <span className={styles.datatitle}>Manage team</span>
+                    <span className={styles.datatitle}>Users</span>
                 </li>
                 <li className={styles.data_item}>
                     <img src="" alt=" " />
