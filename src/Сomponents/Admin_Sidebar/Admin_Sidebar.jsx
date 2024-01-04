@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'
-import styles from "./Admin_Navbar.module.css";
+import styles from "./Admin_Sidebar.module.css";
 //import { adminAva } from "../../../public/adminAva.png";
 
-const Admin_Navbar = (props) => {
+const Admin_Sidebar = (props) => {
     return (
         <div className={styles.admin_navbar_container}>
             <div className={styles.header_title}>
@@ -46,4 +46,4 @@ const Admin_Navbar = (props) => {
         </div>
     )
 }
-export default Admin_Navbar;
+export default Admin_Sidebar;
