@@ -4,6 +4,7 @@ import styles from "./App.module.css";
 import Admin_Sidebar from "./Сomponents/Admin_Sidebar/Admin_Sidebar";
 import Admin_wrapper_content from "./Сomponents/Admin_wrapper_content/Admin_wrapper_content";
 import Topbar from "./Сomponents/Topbar/Topbar";
+import Dashboard from "./Сomponents/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {

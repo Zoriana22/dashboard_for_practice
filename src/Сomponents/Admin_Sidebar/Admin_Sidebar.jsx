@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'
 import styles from "./Admin_Sidebar.module.css";
+import Dashboard from '../Dashboard/Dashboard';
 //import { adminAva } from "../../../public/adminAva.png";
 
 const Admin_Sidebar = (props) => {
@@ -24,7 +25,7 @@ const Admin_Sidebar = (props) => {
 
             <div className={styles.dashboard_box}>
                 <img src="" alt=" " />
-                <span className={styles.dashboard_title}>Dashboard</span>
+                <span className={styles.dashboard_title}>< Dashboard /></span>
             </div>
 
             <><h3 className={styles.admin_data_title}>Data</h3></>
