@@ -1,11 +1,11 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
-import styles from "./Admin_Sidebar.module.css";
+import styles from "./Sidebar.module.css";
 import Dashboard from '../Dashboard/Dashboard';
 import { Link } from "react-router-dom";
 import Users from '../Users/Users'
 
-const Admin_Sidebar = (props) => {
+const Sidebar = (props) => {
     return (
         <div className={styles.admin_navbar_container}>
             <div className={styles.header_title}>
@@ -48,4 +48,4 @@ const Admin_Sidebar = (props) => {
         </div >
     )
 }
-export default Admin_Sidebar;
+export default Sidebar;
