@@ -5,18 +5,19 @@ import Topbar from "./Сomponents/Topbar/Topbar";
 import Dashboard from "./Сomponents/Dashboard/Dashboard";
 import Users from "./Сomponents/Users/Users";
 import { useRoutes } from "react-router-dom";
+import "./routes.js";
 
 function App() {
-  let element = useRoutes([
-    {
-      path: "/",
-      element: <div><Dashboard /></div>,
-    },
-    {
-      path: "users",
-      element: <div><Users /></div>,
-    },
-  ]);
+  // let element = useRoutes([
+  //   {
+  //     path: "/",
+  //     element: <Dashboard />,
+  //   },
+  //   {
+  //     path: "users",
+  //     element: <Users />,
+  //   },
+  // ]);
 
   return (
     <div className={styles.app_wrapper}><Admin_Sidebar />
