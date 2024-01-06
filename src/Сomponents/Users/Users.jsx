@@ -1,6 +1,10 @@
 import React from 'react';
 import styles from "./Users.module.css";
 
+const initialState = {
+    users: []
+}
+
 const Users = (props) => {
     return (
         <div className={styles.admin_wrapper_content}>
