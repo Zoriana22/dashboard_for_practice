@@ -2,8 +2,6 @@ import React from "react";
 import styles from "./App.module.css";
 import Sidebar from "./Сomponents/Sidebar/Sidebar.jsx";
 import Topbar from "./Сomponents/Topbar/Topbar";
-import Dashboard from "./Сomponents/Dashboard/Dashboard";
-import Users from "./Сomponents/Users/Users";
 import { useRoutes } from "react-router-dom";
 import routes from "./routes.js";
 
