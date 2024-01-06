@@ -1,11 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 import Dashboard from "./Сomponents/Dashboard/Dashboard";
 import Users from "./Сomponents/Users/Users";
-import { useRoutes } from "react-router-dom";
 
 
-let element = useRoutes([
+
+let routes = [
     {
         path: "/",
         element: <Dashboard />,
@@ -14,6 +12,6 @@ let element = useRoutes([
         path: "users",
         element: <Users />,
     },
-]);
+];
 
-export default element;
+export default routes;
