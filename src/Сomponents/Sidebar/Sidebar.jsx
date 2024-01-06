@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client'
-import styles from "./Admin_Sidebar.module.css";
-//import { adminAva } from "../../../public/adminAva.png";
+import styles from "./Sidebar.module.css";
+import Dashboard from '../Dashboard/Dashboard';
+import { Link } from "react-router-dom";
 
-const Admin_Sidebar = (props) => {
+
+const Sidebar = (props) => {
     return (
         <div className={styles.admin_navbar_container}>
             <div className={styles.header_title}>
@@ -24,14 +25,14 @@ const Admin_Sidebar = (props) => {
 
             <div className={styles.dashboard_box}>
                 <img src="" alt=" " />
-                <span className={styles.dashboard_title}>Dashboard</span>
+                <span className={styles.dashboard_title}>< Dashboard /></span>
             </div>
 
             <><h3 className={styles.admin_data_title}>Data</h3></>
             <ul>
                 <li className={styles.data_item}>
                     <img src="" alt=" " />
-                    <span className={styles.datatitle}>Manage team</span>
+                    <Link to={`/users`}><span className={styles.admin_data_title}>Users </span></Link>
                 </li>
                 <li className={styles.data_item}>
                     <img src="" alt=" " />
@@ -43,7 +44,7 @@ const Admin_Sidebar = (props) => {
                 </li>
             </ul>
 
-        </div>
+        </div >
     )
 }
-export default Admin_Sidebar;
+export default Sidebar;

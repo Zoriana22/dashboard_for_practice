@@ -1,38 +1,23 @@
 import React from "react";
-import ReactDOM from 'react-dom/client'
-//import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styles from "./App.module.css";
-import Admin_Sidebar from "./Сomponents/Admin_Sidebar/Admin_Sidebar";
-import Admin_wrapper_content from "./Сomponents/Admin_wrapper_content/Admin_wrapper_content";
-//className={styles.test}
+import Sidebar from "./Сomponents/Sidebar/Sidebar.jsx";
 import Topbar from "./Сomponents/Topbar/Topbar";
+import { useRoutes } from "react-router-dom";
+import routes from "./routes.js";
 
-const App = () => {
+function App() {
+  let element = useRoutes(routes);
 
   return (
-    //<BrowserRouter>
-    <div className={styles.app_wrapper}>
+    <div className={styles.app_wrapper}><Sidebar />
 
-      <Admin_Sidebar />
-
-      <div className={styles.topbar}>
-        <Topbar />
-      </div>
-
-      <div className={styles.app_wrapper_content}>
-        <Admin_wrapper_content />
-      </div>
+      <div className={styles.topbar}><Topbar /></div>
+      <div className={styles.app_wrapper_content}> {element} </div>
 
     </div>
-    //</BrowserRouter>
   );
 }
-
 
 export default App;
 
 
-//<Routes>
-//<Route path='/admin' element={<Admin_Navbar />} />
-//<Route path='/admin-content' element={<Admin_wrapper_content />} />
-//</Routes>

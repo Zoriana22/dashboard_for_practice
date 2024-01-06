@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client'
-import styles from "./Admin_wrapper_content.module.css";
+import styles from "./Users.module.css";
 
-const Admin_wrapper_content = (props) => {
+const Users = (props) => {
     return (
         <div className={styles.admin_wrapper_content}>
             <h1>TEAM</h1>
@@ -49,4 +48,4 @@ const Admin_wrapper_content = (props) => {
         </div>
     )
 }
-export default Admin_wrapper_content;
+export default Users;
