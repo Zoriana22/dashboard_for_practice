@@ -1,12 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { PayloadAction } from '@reduxjs/toolkit'
 
-// const initialState = {
-//     value: 0,
-// }
 
 
-export const counterSlice = createSlice({
+export const userSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
@@ -20,10 +17,15 @@ export const counterSlice = createSlice({
         incrementByAmount: (state, action) => {
             state.value += action.payload
         },
+        getAllUsers: (state, action) => {
+            axios.get('http://localhost:5000/api/users').then((response) => {
+                return response.data
+            });
+        }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { increment, decrement, incrementByAmount, getAllUsers } = userSlice.actions
 
-export default counterSlice.reducer
+export default userSlice.reducer

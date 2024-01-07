@@ -1,11 +1,18 @@
 import React from 'react';
 import styles from "./Users.module.css";
+import { useState, useEffect } from 'react';
+import { userSlice } from '../../redux/userSlice';
 
-const initialState = {
-    users: []
-}
 
 const Users = (props) => {
+
+    const [users, getAllUsers] = useState([]);
+    useEffect(() => {
+        axios.get('http://localhost:5000/api/users').then((response) => {
+            return response.data
+        });
+    }, []);
+
     return (
         <div className={styles.admin_wrapper_content}>
             <h1>TEAM</h1>
