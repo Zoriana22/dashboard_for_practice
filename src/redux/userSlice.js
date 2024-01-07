@@ -1,31 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
+const initialState = [];
 
-
-export const userSlice = createSlice({
-    name: 'counter',
-    initialState,
-    reducers: {
-        increment: (state) => {
-
-            state.value += 1
-        },
-        decrement: (state) => {
-            state.value -= 1
-        },
-        incrementByAmount: (state, action) => {
-            state.value += action.payload
-        },
-        getAllUsers: (state, action) => {
-            axios.get('http://localhost:5000/api/users').then((response) => {
-                return response.data
-            });
-        }
-    },
+export const getAllUsers = createAsyncThunk("getAllUsers", async () => {
+    const res = await axios.get('http://localhost:5000/api/users');
+    return res.data;
 })
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount, getAllUsers } = userSlice.actions
+export const userSlice = createSlice({
+    name: 'users',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(getAllUsers.fulfilled, (state, action) => {
+            return action.payload;
+        });
+    },
+});
 
-export default userSlice.reducer
+
+// Action creators are generated for each case reducer function
+export const { } = userSlice.actions
+export const selectUsersData = (state) => state.users.value;
+export default userSlice.reducer;

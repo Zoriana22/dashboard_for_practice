@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from "./Users.module.css";
-import { useState, useEffect } from 'react';
-import { userSlice } from '../../redux/userSlice';
+import { getAllUsers } from '../../redux/userSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUsersData } from '../../redux/userSlice';
 
 
 const Users = (props) => {
-
-    const [users, getAllUsers] = useState([]);
+    const putUserValue = useSelector(selectUsersData);
+    const dispatch = useDispatch();
     useEffect(() => {
-        axios.get('http://localhost:5000/api/users').then((response) => {
-            return response.data
-        });
+        dispatch(getAllUsers());
     }, []);
 
     return (

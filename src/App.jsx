@@ -13,7 +13,6 @@ function App() {
 
   return (
     <>
-      <Counter />
       <div className={styles.app_wrapper}><Sidebar />
 
         <div className={styles.topbar}><Topbar /></div>
