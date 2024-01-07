@@ -48,7 +48,8 @@ const Users = (props) => {
                                     <td key={userValue.id}><span> {userValue.id} </span></td>
                                     <td key={userValue.id}><span> {userValue.id} </span></td>
                                 </tr>
-                            ) 
+                            )
+                        })
                         : (<tr>
                             <td>{" "}</td>
                             <td>{" "}</td>
@@ -58,8 +59,8 @@ const Users = (props) => {
                             <td>{" "}</td>
                             <td>{" "}</td>
                         </tr>)
-                    })
                     }
+
 
                     <tr>
                         <td>test</td>
