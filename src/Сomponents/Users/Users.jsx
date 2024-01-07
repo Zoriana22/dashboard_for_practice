@@ -6,6 +6,7 @@ import { selectUsersData } from '../../redux/userSlice';
 
 
 const Users = (props) => {
+
     const putUserValue = useSelector(selectUsersData);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -35,21 +36,31 @@ const Users = (props) => {
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                        {
-                            this.state.putUserValue.map((putUserValue) => {
-                                return (
-                        <td>test</td>
-                        <td><span> {putUserValue.id} </span></td>
-                        <td><span> {putUserValue.id} </span></td>
-                        <td><span> {putUserValue.id} </span></td>
-                        <td><span> {putUserValue.id} </span></td>
-                        <td><span> {putUserValue.id} </span></td>
-                        <td><span> {putUserValue.id} </span></td>
-                                )
-                            })
-                        }
-                    </tr>
+                    {putUserValue ?
+                        putUserValue.map((userValue) => {
+                            return (
+                                <tr>
+                                    <td key={userValue.id}>test</td>
+                                    <td key={userValue.id}><span>  </span></td>
+                                    <td key={userValue.id}><span> {userValue.id} </span></td>
+                                    <td key={userValue.id}><span> {userValue.id} </span></td>
+                                    <td key={userValue.id}><span> {userValue.id} </span></td>
+                                    <td key={userValue.id}><span> {userValue.id} </span></td>
+                                    <td key={userValue.id}><span> {userValue.id} </span></td>
+                                </tr>
+                            ) 
+                        : (<tr>
+                            <td>{" "}</td>
+                            <td>{" "}</td>
+                            <td>{" "}</td>
+                            <td>{" "}</td>
+                            <td>{" "}</td>
+                            <td>{" "}</td>
+                            <td>{" "}</td>
+                        </tr>)
+                    })
+                    }
+
                     <tr>
                         <td>test</td>
                         <td>test</td>
