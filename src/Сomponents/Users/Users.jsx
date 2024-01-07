@@ -6,7 +6,7 @@ import { selectUsersData } from '../../redux/userSlice';
 
 
 const Users = (props) => {
-
+    const selectUsersData = (state) => state.users;
     const putUserValue = useSelector(selectUsersData);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -20,33 +20,34 @@ const Users = (props) => {
             <table>
                 <thead>
                     <tr>
-                        <th width="7%">Check</th>
-                        <th width="7%">ID</th>
+
+
                         <th width="20%">Name</th>
-                        <th width="8%">Age</th>
-                        <th width="20%">Phone Number</th>
-                        <th width="20%">Email</th>
-                        <th width="13%">Acces Level</th>
+                        <th width="20%">Surname</th>
+                        <th width="10%">Role</th>
+                        <th width="25%">Phone Number</th>
+                        <th width="25%">Email</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th colspan="7" className={styles.last_line} >Rows per page</th>
+                        <th colspan="5" className={styles.last_line} >Rows per page</th>
 
                     </tr>
                 </tfoot>
                 <tbody>
                     {putUserValue ?
                         putUserValue.map((userValue) => {
+
                             return (
                                 <tr>
-                                    <td key={userValue.id}>test</td>
-                                    <td key={userValue.id}><span>  </span></td>
-                                    <td key={userValue.id}><span> {userValue.id} </span></td>
-                                    <td key={userValue.id}><span> {userValue.id} </span></td>
-                                    <td key={userValue.id}><span> {userValue.id} </span></td>
-                                    <td key={userValue.id}><span> {userValue.id} </span></td>
-                                    <td key={userValue.id}><span> {userValue.id} </span></td>
+
+                                    <td key={userValue.id}><span> {userValue.name} </span></td>
+                                    <td key={userValue.id}><span> {userValue.surname} </span></td>
+                                    <td key={userValue.id}><span> {userValue.role}  </span></td>
+                                    <td key={userValue.id}><span> {userValue.phone}</span></td>
+                                    <td key={userValue.id}><span> {userValue.email} </span></td>
+
                                 </tr>
                             )
                         })
@@ -61,16 +62,14 @@ const Users = (props) => {
                         </tr>)
                     }
 
+                    {/* <tr>
+                        <td>test</td>
+                        <td>test</td>
+                        <td>test</td>
+                        <td>test</td>
+                        <td>test</td>
 
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                    </tr>
+                    </tr> */}
                 </tbody>
             </table>
         </div>
