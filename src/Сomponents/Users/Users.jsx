@@ -2,12 +2,17 @@ import React, { useEffect } from 'react';
 import styles from "./Users.module.css";
 import { getAllUsers } from '../../redux/userSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUsersData } from '../../redux/userSlice';
+//import { selectUsersData } from '../../redux/userSlice';
 
 
 const Users = (props) => {
-    const selectUsersData = (state) => state.users;
-    const putUserValue = useSelector(selectUsersData);
+
+    //const selectUsersData = (state) => state.users;
+    //const putUserValue = useSelector(selectUsersData);
+    const putUserValue = useSelector(
+        (state) => state.users
+    )
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllUsers());
@@ -20,8 +25,6 @@ const Users = (props) => {
             <table>
                 <thead>
                     <tr>
-
-
                         <th width="20%">Name</th>
                         <th width="20%">Surname</th>
                         <th width="10%">Role</th>
@@ -36,40 +39,33 @@ const Users = (props) => {
                     </tr>
                 </tfoot>
                 <tbody>
-                    {putUserValue ?
+                    {putUserValue &&
                         putUserValue.map((userValue) => {
 
                             return (
-                                <tr>
+                                <tr key={userValue.id}>
 
-                                    <td key={userValue.id}><span> {userValue.name} </span></td>
-                                    <td key={userValue.id}><span> {userValue.surname} </span></td>
-                                    <td key={userValue.id}><span> {userValue.role}  </span></td>
-                                    <td key={userValue.id}><span> {userValue.phone}</span></td>
-                                    <td key={userValue.id}><span> {userValue.email} </span></td>
+                                    <td> {userValue.name} </td>
+                                    <td> {userValue.surname} </td>
+                                    <td> {userValue.role} </td>
+                                    <td> {userValue.phone} </td>
+                                    <td> {userValue.email} </td>
 
                                 </tr>
                             )
                         })
-                        : (<tr>
-                            <td>{" "}</td>
-                            <td>{" "}</td>
-                            <td>{" "}</td>
-                            <td>{" "}</td>
-                            <td>{" "}</td>
-                            <td>{" "}</td>
-                            <td>{" "}</td>
-                        </tr>)
+                        // : (<tr>
+                        //     <td>{" "}</td>
+                        //     <td>{" "}</td>
+                        //     <td>{" "}</td>
+                        //     <td>{" "}</td>
+                        //     <td>{" "}</td>
+                        //     <td>{" "}</td>
+                        //     <td>{" "}</td>
+                        // </tr>)
                     }
 
-                    {/* <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
 
-                    </tr> */}
                 </tbody>
             </table>
         </div>

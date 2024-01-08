@@ -12,16 +12,16 @@ function App() {
   let element = useRoutes(routes);
 
   return (
-    <>
-      <div className={styles.app_wrapper}><Sidebar />
 
-        <div className={styles.topbar}><Topbar /></div>
-        <div className={styles.app_wrapper_content}> {element} </div>
+    <div className={styles.app_wrapper}><Sidebar />
 
-      </div>
+      <div className={styles.topbar}><Topbar /></div>
+      <div className={styles.app_wrapper_content}> {element} </div>
+
+    </div>
 
 
-    </>
+
   );
 }
 
