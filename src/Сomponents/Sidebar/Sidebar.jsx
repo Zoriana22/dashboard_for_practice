@@ -1,8 +1,10 @@
+//node_modules
 import React from 'react';
-import styles from "./Sidebar.module.css";
-import Dashboard from '../Dashboard/Dashboard';
 import { Link } from "react-router-dom";
-
+//components
+import Dashboard from '../Dashboard/Dashboard';
+//styles
+import styles from "./Sidebar.module.css";
 
 const Sidebar = (props) => {
     return (

@@ -1,14 +1,12 @@
+//node_modules
 import React, { useEffect } from 'react';
-import styles from "./Users.module.css";
 import { getAllUsers } from '../../redux/userSlice';
 import { useSelector, useDispatch } from 'react-redux';
-//import { selectUsersData } from '../../redux/userSlice';
-
+//styles
+import styles from "./Users.module.css";
 
 const Users = (props) => {
 
-    //const selectUsersData = (state) => state.users;
-    //const putUserValue = useSelector(selectUsersData);
     const putUserValue = useSelector(
         (state) => state.users
     )
@@ -55,7 +53,6 @@ const Users = (props) => {
                             )
                         })
                     }
-
 
                 </tbody>
             </table>
