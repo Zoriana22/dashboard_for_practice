@@ -1,13 +1,14 @@
 //node_modules
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import { getAllUsers } from "../../redux/userSlice";
 //styles
 import styles from "./Users.module.css";
 //icons
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-import ModeOutlinedIcon from '@mui/icons-material/ModeOutlined';
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import ModeOutlinedIcon from "@mui/icons-material/ModeOutlined";
 
 const Users = (props) => {
   const putUserValue = useSelector((state) => state.users);
@@ -32,7 +33,7 @@ const Users = (props) => {
             <th width="10%"> </th>
           </tr>
         </thead>
-        
+
         <tbody>
           {putUserValue &&
             putUserValue.map((userValue) => {
@@ -43,7 +44,12 @@ const Users = (props) => {
                   <td> {userValue.role} </td>
                   <td> {userValue.phone} </td>
                   <td> {userValue.email} </td>
-                  <td> <ModeOutlinedIcon fontSize="small" color="primary"/> <DeleteOutlinedIcon fontSize="small" color="primary"/> </td>
+                  <td>
+                    <Link to={`/users/:id`}>
+                      <ModeOutlinedIcon fontSize="small" color="primary" />
+                    </Link>
+                    <DeleteOutlinedIcon fontSize="small" color="primary" />
+                  </td>
                 </tr>
               );
             })}
