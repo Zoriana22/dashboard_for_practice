@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllUsers } from "../../redux/userSlice";
 //styles
 import styles from "./Users.module.css";
+//icons
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import ModeOutlinedIcon from '@mui/icons-material/ModeOutlined';
 
 const Users = (props) => {
   const putUserValue = useSelector((state) => state.users);
@@ -24,8 +27,9 @@ const Users = (props) => {
             <th width="20%">Name</th>
             <th width="20%">Surname</th>
             <th width="10%">Role</th>
-            <th width="25%">Phone Number</th>
-            <th width="25%">Email</th>
+            <th width="20%">Phone Number</th>
+            <th width="20%">Email</th>
+            <th width="10%"> </th>
           </tr>
         </thead>
         <tfoot>
@@ -45,6 +49,7 @@ const Users = (props) => {
                   <td> {userValue.role} </td>
                   <td> {userValue.phone} </td>
                   <td> {userValue.email} </td>
+                  <td> <DeleteOutlinedIcon fontSize="small" color="primary"/><ModeOutlinedIcon fontSize="small" color="primary"/>  </td>
                 </tr>
               );
             })}
