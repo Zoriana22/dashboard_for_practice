@@ -1,7 +1,8 @@
 //node_modules
 import React, { useEffect } from 'react';
-import { getAllUsers } from '../../redux/userSlice';
+//redux
 import { useSelector, useDispatch } from 'react-redux';
+import { getAllUsers } from '../../redux/userSlice';
 //styles
 import styles from "./Users.module.css";
 
