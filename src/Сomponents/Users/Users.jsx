@@ -34,7 +34,7 @@ const Users = (props) => {
         </thead>
         <tfoot>
           <tr>
-            <th colspan="5" className={styles.last_line}>
+            <th colspan="6" className={styles.last_line}>
               Rows per page
             </th>
           </tr>
