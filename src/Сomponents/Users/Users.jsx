@@ -32,13 +32,7 @@ const Users = (props) => {
             <th width="10%"> </th>
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <th colspan="6" className={styles.last_line}>
-              Rows per page
-            </th>
-          </tr>
-        </tfoot>
+        
         <tbody>
           {putUserValue &&
             putUserValue.map((userValue) => {
@@ -49,7 +43,7 @@ const Users = (props) => {
                   <td> {userValue.role} </td>
                   <td> {userValue.phone} </td>
                   <td> {userValue.email} </td>
-                  <td> <DeleteOutlinedIcon fontSize="small" color="primary"/><ModeOutlinedIcon fontSize="small" color="primary"/>  </td>
+                  <td> <ModeOutlinedIcon fontSize="small" color="primary"/> <DeleteOutlinedIcon fontSize="small" color="primary"/> </td>
                 </tr>
               );
             })}
