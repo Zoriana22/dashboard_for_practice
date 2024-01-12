@@ -45,7 +45,7 @@ const Users = (props) => {
                   <td> {userValue.phone} </td>
                   <td> {userValue.email} </td>
                   <td>
-                    <Link to={`/users/:uid`}>
+                    <Link to={`/users/${userValue.id}`}>
                       <ModeOutlinedIcon fontSize="small" color="primary" />
                     </Link>
                     <DeleteOutlinedIcon fontSize="small" color="primary" />
