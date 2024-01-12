@@ -1,0 +1,18 @@
+.edit_inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-input-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit_input_item {
+  color: #fff;
+}
+
+.edit_select {
+   background-color: rgb(83, 44, 239); 
+   color: #fff;
+}
