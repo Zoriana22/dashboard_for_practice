@@ -15,7 +15,7 @@ let routes = [
         element: <Users />,
     },
     {
-        path: "users/:id",
+        path: "users/id",
         element: <EditUser />,
     },
 ];

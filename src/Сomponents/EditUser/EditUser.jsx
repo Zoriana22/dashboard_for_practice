@@ -24,49 +24,76 @@ const EditUser = (props) => {
         noValidate
         autoComplete="off"
       >
-        <div classes="edit_inputs" slotProps={{ div: { className: 'my-input-div' } }}>
-          <label classes="edit_input_item" htmlFor="">
+        <div className={styles.edit_inputs}>
+          <label className={styles.edit_input_item} htmlFor="">
             <TextField
+              className={styles.edit_input_item}
               id="outlined-textarea"
-              label="Multiline Placeholder"
-              placeholder="Name"
+              label="Name"
               multiline
+              InputLabelProps={{
+                style: {
+                  color: "white",
+                  borderColor: "#afacac;"
+                },
+              }}
             />
           </label>
 
-          <label classes="edit_input_item" htmlFor="">
+          <label className={styles.edit_input_item} htmlFor="">
             <TextField
               id="outlined-textarea"
-              label="Multiline Placeholder"
-              placeholder="Surname"
+              label="Surname"
               multiline
+              InputLabelProps={{
+                style: {
+                  color: "white",
+                  borderColor: "#afacac;"
+                },
+              }}
             />
           </label>
 
-          <label classes="edit_select" htmlFor="">
-            <Select defaultValue={role} id="named-select" name="demo-select">
+          <label className={styles.edit_select} htmlFor="">
+            <Select defaultValue={role} id="named-select" name="demo-select" SelectLabelProps={{
+                style: {
+                  width: "200px",
+                  color: "white",
+                  border: "2px solid lightgrey",
+                },
+              }}>
               <Option value={10}>Person</Option>
               <Option value={20}>User</Option>
               <Option value={30}>Client</Option>
             </Select>
           </label>
 
-          <label classes="edit_input_item" htmlFor="">
+          <label className={styles.edit_input_item} htmlFor="">
             <TextField
               id="outlined-textarea"
-              label="Multiline Placeholder"
-              placeholder="PhoneNumber"
+              label="PhoneNumber"
               type="number"
               multiline
+              InputLabelProps={{
+                style: {
+                  color: "white",
+                  border: "2px solid lightgrey",
+                },
+              }}
             />
           </label>
-
-          <label classes="edit_input_item" htmlFor="">
+        
+          <label className={styles.edit_input_item} htmlFor="">
             <TextField
               id="outlined-textarea"
-              label="Multiline Placeholder"
-              placeholder="Email"
+              label="Email"
               multiline
+              InputLabelProps={{
+                style: {
+                  color: "white",
+                  borderColor: "#afacac;"
+                },
+              }}
             />
           </label>
         </div>
