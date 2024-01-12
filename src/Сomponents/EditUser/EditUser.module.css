@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.MuiTextField-root {
+.MuiFormControl-root {
     border: 2px solid lightgrey;
 }
 
