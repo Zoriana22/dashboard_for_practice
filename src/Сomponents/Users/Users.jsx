@@ -11,7 +11,7 @@ import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import ModeOutlinedIcon from "@mui/icons-material/ModeOutlined";
 
 const Users = (props) => {
-  const putUserValue = useSelector((state) => state.users);
+  const allUsersData = useSelector((state) => state.users.allUsers);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -35,17 +35,17 @@ const Users = (props) => {
         </thead>
 
         <tbody>
-          {putUserValue &&
-            putUserValue.map((userValue) => {
+          {allUsersData &&
+            allUsersData.map((userData) => {
               return (
-                <tr key={userValue.id}>
-                  <td> {userValue.name} </td>
-                  <td> {userValue.surname} </td>
-                  <td> {userValue.role} </td>
-                  <td> {userValue.phone} </td>
-                  <td> {userValue.email} </td>
+                <tr key={userData.id}>
+                  <td> {userData.name} </td>
+                  <td> {userData.surname} </td>
+                  <td> {userData.role} </td>
+                  <td> {userData.phone} </td>
+                  <td> {userData.email} </td>
                   <td>
-                    <Link to={`/users/${userValue.id}`}>
+                    <Link to={`/users/${userData.id}`}>
                       <ModeOutlinedIcon fontSize="small" color="primary" />
                     </Link>
                     <DeleteOutlinedIcon fontSize="small" color="primary" />

@@ -2,9 +2,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 //redux
-//import  {id}  from "../Сomponents/EditUser/EditUser";
+import { useState } from "react";
 
-const initialState = [];
+const initialState = {
+    allUsers: [],
+    currentUser: null,
+};
 
 export const getAllUsers = createAsyncThunk("getAllUsers", async () => {
     const res = await axios.get('http://localhost:5000/api/users');
@@ -12,8 +15,7 @@ export const getAllUsers = createAsyncThunk("getAllUsers", async () => {
 })
 
 export const getOneUser = createAsyncThunk("getOneUser", async (id) => {
-    //let { id } = useParams();
-    const res = await axios.get('http://localhost:5000/api/users/' +`${id}`);
+    const res = await axios.get('http://localhost:5000/api/users/' + `${id}`);
     console.log(res.data);
     return res.data;
 })
@@ -24,12 +26,11 @@ export const userSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getAllUsers.fulfilled, (state, action) => {
-            return action.payload;
+            state.allUsers = action.payload;
         });
-    },
-    getOneUser: (builder) => {
+
         builder.addCase(getOneUser.fulfilled, (state, action) => {
-            return action.payload;
+            state.currentUser = action.payload;
         });
     },
 });

@@ -1,7 +1,7 @@
 //node_modules
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 //redux
-import { useState } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { getOneUser } from "../../redux/userSlice";
 import { useParams } from "react-router-dom";
@@ -9,14 +9,24 @@ import { useParams } from "react-router-dom";
 import styles from "./EditUser.module.css";
 
 const EditUser = (props) => {
-  const [name, surname, role, phoneNumber, email] = useState("");
-  const putUserValue = useSelector((state) => state.users);
-  const getUserValue = useSelector((state) => state.users.id);
+  const getUserData = useSelector((state) => state.users.currentUser);
+  
+  const [aboutUserData, setAboutUserData] = useState({});
+
+  // const [name, setName] = useState("");
+  // const [surname, setSurname] = useState("");
+  // const [role, setRole] = useState("");
+  // const [phoneNumber, setPhoneNumber] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [allUsers, setAllUsers] = useState("");
+  // const [currentUser, setCurrentUser] = useState("");
+
   let { id } = useParams();
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getOneUser(id));
+    getUserData = setAboutUserData;
   }, []);
 
   return (
@@ -24,39 +34,39 @@ const EditUser = (props) => {
       <h2>Edit Users</h2>
 
       <div className={styles.edit_inputs}>
-        {putUserValue &&
-          putUserValue.map((userValue) => {
-            return (
+        {/* {getUserData &&
+          getUserData.map((userData) => {
+            return ( */}
               <>
                 <label className={styles.edit_label_item}>
-                  <input 
+                  <input
                     name="name"
                     placeholder="name"
                     className={styles.edit_input_item}
-                    value={userValue.name}             
+                    value={getUserData.name}
                   />
                 </label>
 
                 <label className={styles.edit_label_item}>
-                  <input 
+                  <input
                     name="surname"
                     placeholder="surname"
                     className={styles.edit_input_item}
-                    value={userValue.surname}             
-                  /> 
+                    value={getUserData.surname}
+                  />
                 </label>
 
                 <label className={styles.edit_label_item}>
                   <select
                     name="selectrole"
-                    defaultValue={userValue.role} 
+                    defaultValue={userData.role}
                     className={styles.edit_select_item}
                   >
                     <option
                       className={styles.edit_option_item}
-                      value={userValue.role} 
+                      value={getUserData.role}
                     >
-                      {userValue.role} 
+                      {getUserData.role}
                     </option>
                     <option
                       className={styles.edit_option_item}
@@ -74,25 +84,25 @@ const EditUser = (props) => {
                 </label>
 
                 <label className={styles.edit_label_item}>
-                  <input 
+                  <input
                     name="phoneNumber"
                     placeholder="phoneNumber"
                     className={styles.edit_input_item}
-                    value={userValue.phone}             
-                  /> 
+                    value={getUserData.phone}
+                  />
                 </label>
 
                 <label className={styles.edit_label_item}>
-                  <input 
+                  <input
                     name="email"
                     placeholder="email"
                     className={styles.edit_input_item}
-                    value={userValue.email}             
-                  /> 
+                    value={getUserData.email}
+                  />
                 </label>
               </>
-            );
-          })}
+           {/* );
+          })} */}
       </div>
     </>
   );
