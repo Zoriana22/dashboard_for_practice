@@ -4,7 +4,7 @@ import axios from 'axios';
 //redux
 import { useState } from "react";
 
-const initialState = {
+export const initialState = {
     allUsers: [],
     currentUser: null,
 };
@@ -16,7 +16,7 @@ export const getAllUsers = createAsyncThunk("getAllUsers", async () => {
 
 export const getOneUser = createAsyncThunk("getOneUser", async (id) => {
     const res = await axios.get('http://localhost:5000/api/users/' + `${id}`);
-    console.log(res.data);
+    //console.log(res.data);
     return res.data;
 })
 
