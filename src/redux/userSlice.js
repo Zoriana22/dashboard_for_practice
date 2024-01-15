@@ -10,7 +10,7 @@ export const getAllUsers = createAsyncThunk("getAllUsers", async () => {
 })
 
 export const getOneUser = createAsyncThunk("getOneUser", async () => {
-    const res = await axios.get('http://localhost:5000/api/users/{id}');
+    const res = await axios.get('http://localhost:5000/api/users/' +`${userId}` );
     return res.data;
 })
 

@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 //redux
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getOneUser } from "../../redux/userSlice";
+import { getAllUsers, getOneUser } from "../../redux/userSlice";
 //styles
 import styles from "./EditUser.module.css";
 
