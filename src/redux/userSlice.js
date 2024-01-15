@@ -9,12 +9,22 @@ export const getAllUsers = createAsyncThunk("getAllUsers", async () => {
     return res.data;
 })
 
+export const getOneUser = createAsyncThunk("getOneUser", async () => {
+    const res = await axios.get('http://localhost:5000/api/users/{id}');
+    return res.data;
+})
+
 export const userSlice = createSlice({
     name: 'users',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getAllUsers.fulfilled, (state, action) => {
+            return action.payload;
+        });
+    },
+    getOneUser: (builder) => {
+        builder.addCase(getOneUser.fulfilled, (state, action) => {
             return action.payload;
         });
     },
