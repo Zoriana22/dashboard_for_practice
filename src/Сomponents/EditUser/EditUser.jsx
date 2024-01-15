@@ -9,12 +9,12 @@ import styles from "./EditUser.module.css";
 
 const EditUser = (props) => {
   const [name, surname, role, phoneNumber, email] = useState("");
-
+  const putUserValue = useSelector((state) => state.users);
   const getUserValue = useSelector((state) => state.users.id);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getOneUser());
+    dispatch(getAllUsers());
   }, []);
 
   return (
@@ -22,12 +22,12 @@ const EditUser = (props) => {
       <h2>Edit Users</h2>
 
       <div className={styles.edit_inputs}>
-        {getUserValue &&
-          getUserValue.map((userValue) => {
+        {putUserValue &&
+          putUserValue.map((userValue) => {
             return (
               <>
                 <label className={styles.edit_label_item}>
-                  <input
+                  <input dangerouslySetInnerHTML
                     name="name"
                     placeholder="name"
                     className={styles.edit_input_item}
@@ -37,7 +37,7 @@ const EditUser = (props) => {
                 </label>
 
                 <label className={styles.edit_label_item}>
-                  <input
+                  <input dangerouslySetInnerHTML
                     name="surname"
                     placeholder="surname"
                     className={styles.edit_input_item}
@@ -74,7 +74,7 @@ const EditUser = (props) => {
                 </label>
 
                 <label className={styles.edit_label_item}>
-                  <input
+                  <input dangerouslySetInnerHTML
                     name="phoneNumber"
                     placeholder="phoneNumber"
                     className={styles.edit_input_item}
@@ -84,7 +84,7 @@ const EditUser = (props) => {
                 </label>
 
                 <label className={styles.edit_label_item}>
-                  <input
+                  <input dangerouslySetInnerHTML
                     name="email"
                     placeholder="email"
                     className={styles.edit_input_item}
