@@ -1,6 +1,8 @@
 //node_modules
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+//redux
+//import  {id}  from "../Сomponents/EditUser/EditUser";
 
 const initialState = [];
 
@@ -9,8 +11,9 @@ export const getAllUsers = createAsyncThunk("getAllUsers", async () => {
     return res.data;
 })
 
-export const getOneUser = createAsyncThunk("getOneUser", async () => {
-    const res = await axios.get('http://localhost:5000/api/users/' +`${uid}`);
+export const getOneUser = createAsyncThunk("getOneUser", async (id) => {
+    //let { id } = useParams();
+    const res = await axios.get('http://localhost:5000/api/users/' +`${id}`);
     console.log(res.data);
     return res.data;
 })

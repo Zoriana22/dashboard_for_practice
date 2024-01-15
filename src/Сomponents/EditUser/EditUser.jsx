@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 //redux
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllUsers, getOneUser } from "../../redux/userSlice";
+import { getOneUser } from "../../redux/userSlice";
+import { useParams } from "react-router-dom";
 //styles
 import styles from "./EditUser.module.css";
 
@@ -11,10 +12,11 @@ const EditUser = (props) => {
   const [name, surname, role, phoneNumber, email] = useState("");
   const putUserValue = useSelector((state) => state.users);
   const getUserValue = useSelector((state) => state.users.id);
+  let { id } = useParams();
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllUsers());
+    dispatch(getOneUser(id));
   }, []);
 
   return (
@@ -27,36 +29,34 @@ const EditUser = (props) => {
             return (
               <>
                 <label className={styles.edit_label_item}>
-                  <input dangerouslySetInnerHTML
+                  <input 
                     name="name"
                     placeholder="name"
                     className={styles.edit_input_item}
-                  >
-                    {userValue.name}
-                  </input>
+                    value={userValue.name}             
+                  />
                 </label>
 
                 <label className={styles.edit_label_item}>
-                  <input dangerouslySetInnerHTML
+                  <input 
                     name="surname"
                     placeholder="surname"
                     className={styles.edit_input_item}
-                  >
-                    {userValue.surname}
-                  </input>
+                    value={userValue.surname}             
+                  /> 
                 </label>
 
                 <label className={styles.edit_label_item}>
                   <select
                     name="selectrole"
-                    defaultValue="some role"
+                    defaultValue={userValue.role} 
                     className={styles.edit_select_item}
                   >
                     <option
                       className={styles.edit_option_item}
-                      value="someOption"
+                      value={userValue.role} 
                     >
-                      some role
+                      {userValue.role} 
                     </option>
                     <option
                       className={styles.edit_option_item}
@@ -74,23 +74,21 @@ const EditUser = (props) => {
                 </label>
 
                 <label className={styles.edit_label_item}>
-                  <input dangerouslySetInnerHTML
+                  <input 
                     name="phoneNumber"
                     placeholder="phoneNumber"
                     className={styles.edit_input_item}
-                  >
-                    {userValue.phone}
-                  </input>
+                    value={userValue.phone}             
+                  /> 
                 </label>
 
                 <label className={styles.edit_label_item}>
-                  <input dangerouslySetInnerHTML
+                  <input 
                     name="email"
                     placeholder="email"
                     className={styles.edit_input_item}
-                  >
-                    {userValue.email}
-                  </input>
+                    value={userValue.email}             
+                  /> 
                 </label>
               </>
             );
