@@ -8,6 +8,12 @@ import { useParams } from "react-router-dom";
 import styles from "./EditUser.module.css";
 
 const EditUser = (props) => {
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [role, setRole] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+
   let { id } = useParams();
 
   const dispatch = useDispatch();
@@ -16,31 +22,36 @@ const EditUser = (props) => {
   }, []);
 
   const getUserData = useSelector((state) => state.users.currentUser);
-  
+
   useEffect(() => {
     if (getUserData !== null) {
-    setName(getUserData.name);
-    setSurname(getUserData.surname);
-    setRole(getUserData.role);
-    setPhone(getUserData.phoneNumber);
-    setEmail(getUserData.email);
-  }
-  }, []);
+      setName(getUserData.name);
+      setSurname(getUserData.surname);
+      setRole(getUserData.role);
+      setPhone(getUserData.phone);
+      setEmail(getUserData.email);
+    }
+  }, [getUserData]);
 
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [role, setRole] = useState("");
-  const [phoneNumber, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  }
+  const handleChangeName = (event) => {
+    setName(event.target.value);
+  };
+  const handleChangeSurname = (event) => {
+    setSurname(event.target.value);
+  };
+  const handleChangeRole = (event) => {
+    setRole(event.target.value);
+  };
+  const handleChangePhone = (event) => {
+    setPhone(event.target.value);
+  };
+  const handleChangeEmail = (event) => {
+    setEmail(event.target.value);
+  };
 
   return (
     <>
       <h2>Edit Users</h2>
-
       <div className={styles.edit_inputs}>
         <>
           <label className={styles.edit_label_item}>
@@ -48,7 +59,7 @@ const EditUser = (props) => {
               name="name"
               placeholder="name"
               className={styles.edit_input_item}
-              onChange={handleChange} 
+              onChange={handleChangeName}
               value={name}
             />
           </label>
@@ -58,7 +69,7 @@ const EditUser = (props) => {
               name="surname"
               placeholder="surname"
               className={styles.edit_input_item}
-              onChange={handleChange}
+              onChange={handleChangeSurname}
               value={surname}
             />
           </label>
@@ -66,25 +77,17 @@ const EditUser = (props) => {
           <label className={styles.edit_label_item}>
             <select
               name="role"
-              defaultValue="someOption"
+              defaultValue={role}
               className={styles.edit_select_item}
+              onChange={handleChangeRole}
             >
-              <option
-                className={styles.edit_option_item}
-                value="someOption"
-              >
+              <option className={styles.edit_option_item} value={role}>
+                {role}
+              </option>
+              <option className={styles.edit_option_item} value="someOption">
                 other option
               </option>
-              <option
-                className={styles.edit_option_item}
-                value="someOption"
-              >
-                other option
-              </option>
-              <option
-                className={styles.edit_option_item}
-                value="otherOption"
-              >
+              <option className={styles.edit_option_item} value="otherOption">
                 other option
               </option>
             </select>
@@ -95,8 +98,8 @@ const EditUser = (props) => {
               name="phoneNumber"
               placeholder="phoneNumber"
               className={styles.edit_input_item}
-              onChange={handleChange}
-              value={phoneNumber}
+              onChange={handleChangePhone}
+              value={phone}
             />
           </label>
 
@@ -105,7 +108,7 @@ const EditUser = (props) => {
               name="email"
               placeholder="email"
               className={styles.edit_input_item}
-              onChange={handleChange}
+              onChange={handleChangeEmail}
               value={email}
             />
           </label>
