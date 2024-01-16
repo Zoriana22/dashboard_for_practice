@@ -7,6 +7,7 @@ import { useState } from "react";
 export const initialState = {
     allUsers: [],
     currentUser: null,
+    roles: [],
 };
 
 export const getAllUsers = createAsyncThunk("getAllUsers", async () => {
@@ -20,6 +21,11 @@ export const getOneUser = createAsyncThunk("getOneUser", async (id) => {
     return res.data;
 })
 
+export const getUserRole = createAsyncThunk("getUserRole", async () => {
+    const res = await axios.get('http://localhost:5000/api/roles');
+    return res.data;
+})
+
 export const userSlice = createSlice({
     name: 'users',
     initialState,
@@ -28,8 +34,10 @@ export const userSlice = createSlice({
         builder.addCase(getAllUsers.fulfilled, (state, action) => {
             state.allUsers = action.payload;
         });
-
         builder.addCase(getOneUser.fulfilled, (state, action) => {
+            state.currentUser = action.payload;
+        });
+        builder.addCase(getUserRole.fulfilled, (state, action) => {
             state.currentUser = action.payload;
         });
     },

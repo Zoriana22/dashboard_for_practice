@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 //redux
 import { useSelector, useDispatch } from "react-redux";
-import { getOneUser } from "../../redux/userSlice";
+import { getOneUser, getUserRole } from "../../redux/userSlice";
 import { useParams } from "react-router-dom";
 //styles
 import styles from "./EditUser.module.css";
@@ -21,13 +21,19 @@ const EditUser = (props) => {
     dispatch(getOneUser(id));
   }, []);
 
+  const dispatchRoles = useDispatch();
+  useEffect(() => {
+    dispatch(getUserRole());
+  }, [putRoles]);
+
   const getUserData = useSelector((state) => state.users.currentUser);
+  const putRoles = useSelector((state) => state.users.roles);
 
   useEffect(() => {
-    if (getUserData !== null) {
+    if (getUserData !== null && putRoles == true) {
       setName(getUserData.name);
       setSurname(getUserData.surname);
-      setRole(getUserData.role);
+      setRole(putRoles.name);
       setPhone(getUserData.phone);
       setEmail(getUserData.email);
     }
@@ -39,9 +45,9 @@ const EditUser = (props) => {
   const handleChangeSurname = (event) => {
     setSurname(event.target.value);
   };
-  const handleChangeRole = (event) => {
+  /*const handleChangeRole = (event) => {
     setRole(event.target.value);
-  };
+  };*/
   const handleChangePhone = (event) => {
     setPhone(event.target.value);
   };
@@ -75,22 +81,27 @@ const EditUser = (props) => {
           </label>
 
           <label className={styles.edit_label_item}>
+            {/*{putRoles &&
+            putRoles.map((putRole) => {
+            return (*/}
             <select
               name="role"
-              defaultValue={role}
+              defaultValue={putRoles.name}
               className={styles.edit_select_item}
-              onChange={handleChangeRole}
+              /*onChange={handleChangeRole}*/
             >
-              <option className={styles.edit_option_item} value={role}>
-                {role}
-              </option>
-              <option className={styles.edit_option_item} value="someOption">
-                other option
+              <option className={styles.edit_option_item} value="otherOption">
+                {putRoles.name}
               </option>
               <option className={styles.edit_option_item} value="otherOption">
-                other option
+                {putRoles.name}
+              </option>
+              <option className={styles.edit_option_item} value="otherOption">
+                {putRoles.name}
               </option>
             </select>
+            {/*</> );
+          })}*/}
           </label>
 
           <label className={styles.edit_label_item}>
