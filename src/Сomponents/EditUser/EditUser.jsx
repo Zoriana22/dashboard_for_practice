@@ -29,11 +29,13 @@ const EditUser = (props) => {
 
   const getUserData = useSelector((state) => state.users.currentUser);
   const roles = useSelector((state) => state.roles.allRoles);
+  console.log(role);
 
   useEffect(() => {
     if (getUserData !== null) {
       setName(getUserData.name);
       setSurname(getUserData.surname);
+      setRole(getUserData.role);
       setPhone(getUserData.phone);
       setEmail(getUserData.email);
     }
@@ -83,20 +85,20 @@ const EditUser = (props) => {
           <label className={styles.edit_label_item}>
             <select
               name="role"
-              defaultValue="roles"
+              onChange={(event) => setRole(event.target.value)}
               className={styles.edit_select_item}
+              
             >
-              {/*onChange={handleChangeRole}*/}
-
               {roles &&
-                roles.map((role) => {
+                roles.map((item) => {
+                  console.log(item);
                   return (
                     <option
-                      key={role.id}
+                      key={item.id}
                       className={styles.edit_option_item}
-                      value="otherOption"
+                      selected={item.name === role}
                     >
-                      {role.name}
+                      {item.name}
                     </option>
                   );
               })}
