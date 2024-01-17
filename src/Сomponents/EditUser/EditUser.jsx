@@ -87,7 +87,7 @@ const EditUser = (props) => {
               name="role"
               onChange={(event) => setRole(event.target.value)}
               className={styles.edit_select_item}
-              
+              value={role}
             >
               {roles &&
                 roles.map((item) => {
@@ -96,7 +96,7 @@ const EditUser = (props) => {
                     <option
                       key={item.id}
                       className={styles.edit_option_item}
-                      selected={item.name === role}
+                      /*selected={item.name === role}*/
                     >
                       {item.name}
                     </option>
