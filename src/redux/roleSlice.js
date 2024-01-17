@@ -8,7 +8,7 @@ export const initialState = {
   roles: [],
 };
 
-export const userRole = createAsyncThunk("userRole", async () => {
+export const getRoles = createAsyncThunk("getRoles", async () => {
   const res = await axios.get('http://localhost:5000/api/roles');
   return res.data;
 })
@@ -19,7 +19,7 @@ export const roleSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
 
-    builder.addCase(userRole.fulfilled, (state, action) => {
+    builder.addCase(getRoles.fulfilled, (state, action) => {
     state.roles = action.payload;
     });
   },

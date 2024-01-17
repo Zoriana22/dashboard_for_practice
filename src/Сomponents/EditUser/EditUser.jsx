@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import { getOneUser } from "../../redux/userSlice";
-import { userRole } from "../../redux/roleSlice";
+import { getRoles } from "../../redux/roleSlice";
 import { useParams } from "react-router-dom";
 //styles
 import styles from "./EditUser.module.css";
@@ -24,21 +24,26 @@ const EditUser = (props) => {
 
   const dispatchRoles = useDispatch();
   useEffect(() => {
-    dispatch(userRole());
+    dispatch(getRoles());
   }, [roles]);
 
   const getUserData = useSelector((state) => state.users.currentUser);
   const roles = useSelector((state) => state.users.roles);
 
   useEffect(() => {
-    if (getUserData !== null && putRoles == true) {
+    if (getUserData !== null) {
       setName(getUserData.name);
       setSurname(getUserData.surname);
-      setRole(roles.name);
       setPhone(getUserData.phone);
       setEmail(getUserData.email);
     }
   }, [getUserData]);
+
+  useEffect(() => {
+    if (roles == true) {
+      setRole(role.name);
+    }
+  }, [roles]);
 
   const handleChangeName = (event) => {
     setName(event.target.value);
