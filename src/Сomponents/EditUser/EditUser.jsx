@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 //redux
 import { useSelector, useDispatch } from "react-redux";
-import { getOneUser, getUserRole } from "../../redux/userSlice";
+import { getOneUser } from "../../redux/userSlice";
+import { getUserRole } from "../../redux/roleSlice";
 import { useParams } from "react-router-dom";
 //styles
 import styles from "./EditUser.module.css";
@@ -81,27 +82,25 @@ const EditUser = (props) => {
           </label>
 
           <label className={styles.edit_label_item}>
-            {/*{putRoles &&
-            putRoles.map((putRole) => {
-            return (*/}
             <select
               name="role"
               defaultValue={putRoles.name}
               className={styles.edit_select_item}
-              /*onChange={handleChangeRole}*/
             >
-              <option className={styles.edit_option_item} value="otherOption">
-                {putRoles.name}
-              </option>
-              <option className={styles.edit_option_item} value="otherOption">
-                {putRoles.name}
-              </option>
-              <option className={styles.edit_option_item} value="otherOption">
-                {putRoles.name}
-              </option>
+              {/*onChange={handleChangeRole}*/}
+
+              {putRoles &&
+                putRoles.map((putRole) => {
+                  return (
+                    <option
+                      className={styles.edit_option_item}
+                      value="otherOption"
+                    >
+                      {putRoles.name}
+                    </option>
+                  );
+                })}
             </select>
-            {/*</> );
-          })}*/}
           </label>
 
           <label className={styles.edit_label_item}>
