@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import { getOneUser } from "../../redux/userSlice";
-import { getUserRole } from "../../redux/roleSlice";
+import { userRole } from "../../redux/roleSlice";
 import { useParams } from "react-router-dom";
 //styles
 import styles from "./EditUser.module.css";
@@ -24,17 +24,17 @@ const EditUser = (props) => {
 
   const dispatchRoles = useDispatch();
   useEffect(() => {
-    dispatch(getUserRole());
-  }, [putRoles]);
+    dispatch(userRole());
+  }, [roles]);
 
   const getUserData = useSelector((state) => state.users.currentUser);
-  const putRoles = useSelector((state) => state.users.roles);
+  const roles = useSelector((state) => state.users.roles);
 
   useEffect(() => {
     if (getUserData !== null && putRoles == true) {
       setName(getUserData.name);
       setSurname(getUserData.surname);
-      setRole(putRoles.name);
+      setRole(roles.name);
       setPhone(getUserData.phone);
       setEmail(getUserData.email);
     }
@@ -84,22 +84,23 @@ const EditUser = (props) => {
           <label className={styles.edit_label_item}>
             <select
               name="role"
-              defaultValue={putRoles.name}
+              defaultValue={roles.name}
               className={styles.edit_select_item}
             >
               {/*onChange={handleChangeRole}*/}
 
-              {putRoles &&
-                putRoles.map((putRole) => {
+              {roles &&
+                roles.map((role) => {
                   return (
                     <option
+                      key={role.id}
                       className={styles.edit_option_item}
                       value="otherOption"
                     >
-                      {putRoles.name}
+                      {role.name}
                     </option>
                   );
-                })}
+              })}
             </select>
           </label>
 
