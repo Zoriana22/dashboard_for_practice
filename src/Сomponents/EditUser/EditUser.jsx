@@ -28,7 +28,7 @@ const EditUser = (props) => {
   }, [roles]);
 
   const getUserData = useSelector((state) => state.users.currentUser);
-  const roles = useSelector((state) => state.users.roles);
+  const roles = useSelector((state) => state.allRoles);
 
   useEffect(() => {
     if (getUserData !== null) {
@@ -39,13 +39,7 @@ const EditUser = (props) => {
     }
   }, [getUserData]);
 
-  useEffect(() => {
-    if (roles == true) {
-      setRole(role.name);
-    }
-  }, [roles]);
-
-  const handleChangeName = (event) => {
+    const handleChangeName = (event) => {
     setName(event.target.value);
   };
   const handleChangeSurname = (event) => {
@@ -89,7 +83,7 @@ const EditUser = (props) => {
           <label className={styles.edit_label_item}>
             <select
               name="role"
-              defaultValue={roles.name}
+              defaultValue="roles"
               className={styles.edit_select_item}
             >
               {/*onChange={handleChangeRole}*/}

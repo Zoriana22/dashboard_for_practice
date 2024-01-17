@@ -5,7 +5,8 @@ import axios from 'axios';
 import { useState } from "react";
 
 export const initialState = {
-  roles: [],
+  allRoles: [],
+  currentRole: null,
 };
 
 export const getRoles = createAsyncThunk("getRoles", async () => {
@@ -20,7 +21,7 @@ export const roleSlice = createSlice({
   extraReducers: (builder) => {
 
     builder.addCase(getRoles.fulfilled, (state, action) => {
-    state.roles = action.payload;
+    state.allRoles = action.payload;
     });
   },
 });
