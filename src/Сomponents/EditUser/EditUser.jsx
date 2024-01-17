@@ -28,7 +28,7 @@ const EditUser = (props) => {
   }, [roles]);
 
   const getUserData = useSelector((state) => state.users.currentUser);
-  const roles = useSelector((state) => state.allRoles);
+  const roles = useSelector((state) => state.roles.allRoles);
 
   useEffect(() => {
     if (getUserData !== null) {
