@@ -23,11 +23,7 @@ const EditUser = (props) => {
     dispatch(getRoles());
    }, [],
   );
-  
-  /*useEffect(() => {
-    dispatch(getRoles());
-  }, [roles]);*/
-
+    
   const userData = useSelector((state) => state.users.currentUser);
   const roles = useSelector((state) => state.roles.allRoles);
 
