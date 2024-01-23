@@ -1,13 +1,17 @@
 //node_modules
 import React, { useEffect } from "react";
-//redux
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+//redux
 import { getAllUsers } from "../../redux/userSlice";
 //styles
 import styles from "./Users.module.css";
+//icons
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import ModeOutlinedIcon from "@mui/icons-material/ModeOutlined";
 
 const Users = (props) => {
-  const putUserValue = useSelector((state) => state.users);
+  const allUsersData = useSelector((state) => state.users.allUsers);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -24,27 +28,28 @@ const Users = (props) => {
             <th width="20%">Name</th>
             <th width="20%">Surname</th>
             <th width="10%">Role</th>
-            <th width="25%">Phone Number</th>
-            <th width="25%">Email</th>
+            <th width="20%">Phone Number</th>
+            <th width="20%">Email</th>
+            <th width="10%"> </th>
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <th colspan="5" className={styles.last_line}>
-              Rows per page
-            </th>
-          </tr>
-        </tfoot>
+
         <tbody>
-          {putUserValue &&
-            putUserValue.map((userValue) => {
+          {allUsersData &&
+            allUsersData.map((userData) => {
               return (
-                <tr key={userValue.id}>
-                  <td> {userValue.name} </td>
-                  <td> {userValue.surname} </td>
-                  <td> {userValue.role} </td>
-                  <td> {userValue.phone} </td>
-                  <td> {userValue.email} </td>
+                <tr key={userData.id}>
+                  <td> {userData.name} </td>
+                  <td> {userData.surname} </td>
+                  <td> {userData.role} </td>
+                  <td> {userData.phone} </td>
+                  <td> {userData.email} </td>
+                  <td>
+                    <Link to={`/users/${userData.id}`}>
+                      <ModeOutlinedIcon fontSize="small" color="primary" />
+                    </Link>
+                    <DeleteOutlinedIcon fontSize="small" color="primary" />
+                  </td>
                 </tr>
               );
             })}

@@ -1,0 +1,31 @@
+.edit_users {
+  margin-bottom: 15px;
+}
+
+.edit_inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit_select_item {
+  width: 200px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  margin-bottom: 15px;
+}
+
+.edit_input_item {
+  width: 190px;
+  height: 20px;
+  padding-left: 4px;
+  border-radius: 7px;
+  margin-bottom: 15px;
+}
+
+.edit_option_item {
+  padding: 0;
+  height: 26px;
+  border: 0;
+}
