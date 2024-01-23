@@ -41,7 +41,7 @@ const EditUser = (props) => {
     }
   }, [getUserData]);
 
-    const handleChangeName = (event) => {
+  const handleChangeName = (event) => {
     setName(event.target.value);
   };
   const handleChangeSurname = (event) => {
@@ -101,7 +101,7 @@ const EditUser = (props) => {
                       {item.name}
                     </option>
                   );
-              })}
+                })}
             </select>
           </label>
 

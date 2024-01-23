@@ -21,7 +21,7 @@ export const roleSlice = createSlice({
   extraReducers: (builder) => {
 
     builder.addCase(getRoles.fulfilled, (state, action) => {
-    state.allRoles = action.payload;
+      state.allRoles = action.payload;
     });
   },
 });

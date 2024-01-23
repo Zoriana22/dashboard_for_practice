@@ -31,7 +31,7 @@ export const userSlice = createSlice({
     builder.addCase(getOneUser.fulfilled, (state, action) => {
       state.currentUser = action.payload;
     });
-    
+
   },
 });
 
