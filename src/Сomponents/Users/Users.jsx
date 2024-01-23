@@ -1,8 +1,8 @@
 //node_modules
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-//redux
 import { useSelector, useDispatch } from "react-redux";
+//redux
 import { getAllUsers } from "../../redux/userSlice";
 //styles
 import styles from "./Users.module.css";

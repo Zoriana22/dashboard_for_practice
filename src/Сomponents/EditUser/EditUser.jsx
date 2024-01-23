@@ -1,10 +1,10 @@
 //node_modules
 import React, { useEffect, useState } from "react";
-//redux
 import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+//redux
 import { getOneUser } from "../../redux/userSlice";
 import { getRoles } from "../../redux/roleSlice";
-import { useParams } from "react-router-dom";
 //styles
 import styles from "./EditUser.module.css";
 
@@ -19,27 +19,27 @@ const EditUser = (props) => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getOneUser(id));
-  }, []);
-
-  const dispatchRoles = useDispatch();
-  useEffect(() => {
+    dispatch(getOneUser(id)),
     dispatch(getRoles());
-  }, [roles]);
+   }, [],
+  );
+  
+  /*useEffect(() => {
+    dispatch(getRoles());
+  }, [roles]);*/
 
-  const getUserData = useSelector((state) => state.users.currentUser);
+  const userData = useSelector((state) => state.users.currentUser);
   const roles = useSelector((state) => state.roles.allRoles);
-  console.log(role);
 
   useEffect(() => {
-    if (getUserData !== null) {
-      setName(getUserData.name);
-      setSurname(getUserData.surname);
-      setRole(getUserData.role);
-      setPhone(getUserData.phone);
-      setEmail(getUserData.email);
+    if (userData !== null) {
+      setName(userData.name);
+      setSurname(userData.surname);
+      setRole(userData.role);
+      setPhone(userData.phone);
+      setEmail(userData.email);
     }
-  }, [getUserData]);
+  }, [userData]);
 
   const handleChangeName = (event) => {
     setName(event.target.value);
@@ -47,9 +47,9 @@ const EditUser = (props) => {
   const handleChangeSurname = (event) => {
     setSurname(event.target.value);
   };
-  /*const handleChangeRole = (event) => {
+  const handleChangeRole = (event) => {
     setRole(event.target.value);
-  };*/
+  };
   const handleChangePhone = (event) => {
     setPhone(event.target.value);
   };
@@ -59,7 +59,7 @@ const EditUser = (props) => {
 
   return (
     <>
-      <h2>Edit Users</h2>
+      <h2 className={styles.edit_users}>Edit Users</h2>
       <div className={styles.edit_inputs}>
         <>
           <label className={styles.edit_label_item}>
@@ -84,20 +84,14 @@ const EditUser = (props) => {
 
           <label className={styles.edit_label_item}>
             <select
-              name="role"
-              onChange={(event) => setRole(event.target.value)}
+              onChange={handleChangeRole}
               className={styles.edit_select_item}
               value={role}
             >
               {roles &&
                 roles.map((item) => {
-                  console.log(item);
                   return (
-                    <option
-                      key={item.id}
-                      className={styles.edit_option_item}
-                      /*selected={item.name === role}*/
-                    >
+                    <option key={item.id} className={styles.edit_option_item}>
                       {item.name}
                     </option>
                   );
